@@ -80,12 +80,12 @@ class Controller
 	def create_string(choice, index)
 		word_array = []
 		if choice == "row"
-			find_row(index).each do |index|
-			  word_array << game.game_state[index]
+			find_row(index).each do |index2|
+			  word_array << game.game_state[index2]
 			end
 		else
-			find_column(index).each do |index|
-			  word_array << game.game_state[index]
+			find_column(index).each do |index2|
+			  word_array << game.game_state[index2]
 			end
 		end
 		word_array.join
@@ -93,16 +93,20 @@ class Controller
 
 	def check_string(string)
 		word_list = []
-		if /[AEIOU]/.match(string)
-			alphabet = [*("A".."Z")]
-			array = string.split("")
-			array.pop
-			array.uniq.each do |letter|
-				@word_arrays[alphabet.index(letter)].each do |word|
-					if string.include?(word)
-						(string.scan(/(?=#{word})/).count).times { word_list << word }
-					end
-				end
+            if /[AEIOU]/.match(string)
+            alphabet = [*("A".."Z")]
+            array = string.split("")
+            array.pop
+            array.uniq.each do |letter|
+                if letter == " "
+			           next
+			    else
+    		   		@word_arrays[alphabet.index(letter)].each do |word|
+    					if string.include?(word)
+    						(string.scan(/(?=#{word})/).count).times { word_list << word }
+    					end
+    				end
+                end
 			end	
 		else 
 			if /[Y]/.match(string)
@@ -164,13 +168,17 @@ class Controller
 	end
 
 	def get_string_indices(words, string)
-		x = 0
 		array = []
-		words.each do |word|
-			(word.length).times do 
-				array << string.index(word) + x
-				x += 1
-			end
+		if words[0]
+    		words[0].each do |word|
+	    	x = 0
+		    	if word
+			        (word.length).times do 
+			        	array << (string.index(word) + x)
+			    	    x += 1
+		        	end
+		    	end
+		    end
 		end
 		array
 	end 
@@ -184,7 +192,9 @@ class Controller
 		else
 			string_indices.each do |index|
 				cells << find_column_cell(index, board_index)
+		    end
 		end
+		cells
 	end
 
 #### POSITION INTERPRETATION METHODS ####
@@ -238,17 +248,18 @@ class Controller
 				change_cursor("up")
 			when "DOWN ARROW"
 				change_cursor("down")
-			when "SINGLE CHAR HIT: \"d\""
+			when "SINGLE CHAR HIT: \"f\""
 				select_cell
 				gravity
 			when "SINGLE CHAR HIT: \"e\""
 				add_row(1)
 			when "ESCAPE"
 				return false
-			when "SINGLE CHAR HIT: \"f\""
+			when "SINGLE CHAR HIT: \"g\""
 				rotate_cursor
 			when "RETURN"
-				### EVALUATE LETTERS ###
+				evaluate_board
+				gravity
 			end
 	end
 
@@ -286,6 +297,8 @@ class Controller
 		@board.display_board(@game)
 		while user_input != false
     	@board.display_board(@game)
+    # 	p game.score
+    # 	p game.words_matched
 		end
 	end
 
@@ -302,12 +315,36 @@ class Controller
 		end
 	end
 
+    def flicker(cells)
+        flickered_cells = {}
+        cells.each do |cell|
+            flickered_cells[cell] = game.game_state[cell]
+            game.game_state[cell] = "*"
+        end
+        @board.display_board(@game)
+        sleep(0.5)
+        flickered_cells.each do |k,v|
+            game.game_state[k] = v
+        end
+        @board.display_board(@game)
+        sleep(0.5)
+    end
+
+    def clear_cells(cells)
+        cells.each do |cell|
+            game.game_state[cell] = " "
+        end
+    end
+
 	def update_score(words)
-		game.score += words[1]
-		words[0].each {|word| game.words_matched << word}
+        if words[1] 
+		    game.score += words[1]
+		    words[0].each {|word| game.words_matched << word}
+        end
 	end
 
 	def evaluate_board
+		marked_cells = []
 		(0..7).each do |num|
 			string = create_string("row", num)
 			if string.include?("      ") 
@@ -315,7 +352,7 @@ class Controller
 			else
 				words = best_words(check_string(string)[0],string)
 				update_score(words)
-				mark_cells(get_string_indices(words, string), num, "row")
+				marked_cells += mark_cells(get_string_indices(words, string), num, "row")
 			end
 		end
 		(0..6).each do |num|
@@ -325,9 +362,11 @@ class Controller
 			else
 				words = best_words(check_string(string)[0],string)
 				update_score(words)
-				mark_cells(get_string_indices(words, string), num, "column")
+				marked_cells += mark_cells(get_string_indices(words, string), num, "column")
 			end
 		end
+		flicker(marked_cells.uniq)
+		clear_cells(marked_cells.uniq)
 	end
 
 	private
