@@ -315,7 +315,7 @@ class Controller
 			else
 				words = best_words(check_string(string)[0],string)
 				update_score(words)
-				mark_cells(get_string_indices(words, string), num, row)
+				mark_cells(get_string_indices(words, string), num, "row")
 			end
 		end
 		(0..6).each do |num|
@@ -325,7 +325,7 @@ class Controller
 			else
 				words = best_words(check_string(string)[0],string)
 				update_score(words)
-				mark_cells(get_string_indices(words, string), num, column)
+				mark_cells(get_string_indices(words, string), num, "column")
 			end
 		end
 	end
