@@ -1,3 +1,4 @@
+require 'gosu'
 require_relative "controller.rb"
 
 cont = Controller.new
