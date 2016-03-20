@@ -1,93 +1,68 @@
+require 'gosu'
+require_relative "tile.rb"
+require_relative "number.rb"
+
 class Board
 
+include Position_Methods
+
+def initialize(window)
+		@background = Gosu::Image.new(window, "images/background.png", false)
+		@pause_screen = Gosu::Image.new(window, "images/pause_screen.png", false)
+		@pause_icon = Gosu::Image.new(window, "images/pause_icon.png", false)
+		@tiles = Gosu::Image.load_tiles(window, "images/letters_spritesheet.png", 56, 52, false)
+		@numbers = Gosu::Image.load_tiles(window, "images/numbers_spritesheet.png", 24, 28, false)
+		@vert_cursor = Gosu::Image.new(window, "images/vert_cursor.png", false)
+		@horz_cursor = Gosu::Image.new(window, "images/horz_cursor.png", false)
+end
+
 #### DISPLAY METHODS ####
-	
-	def make_board
-	  board_array = []
-	  IO.foreach("board.txt") {|line| board_array << line.chomp }
-	  @board_string = board_array.join("\n")
-	end
-
-	def place_letters(game)
-		x = 368
-	  game.game_state.each do |letter|
-	  	@board_string[x] = letter
-	  		case x 
-	  		when 416
-	  			x += 316
-	  		when 780
-	  			x += 316
-	  		when 1144
-	  			x += 316
-	  		when 1508
-	  			x += 316
-	  		when 1872
-	  			x += 316
-	  		when 2236
-	  			x += 316	
-	  		when 2600
-	  			x += 316
-	  		when 2964
-	  			x += 316
-	  		else
-	  			x += 8
-	  		end
-	  end
-	end
-	
-	def calc_cursor_array(coords, orientation)
-			cursor_array = []
-			x = 1
-			y = 1 
-		if orientation == "horizontal"	
-			coords[0][0] < coords[1][0] ? coords = coords[0] : coords = coords[1]
-			cursor_array << (((((coords[1] * 4) + 3)-1) * 91) + (coords[0] * 8)+1)	
-			(1..14).each { |x| cursor_array << cursor_array[0] + x }
-			(0..14).each { |x| cursor_array << cursor_array[0] + (x + 364) }
-			3.times do
-				cursor_array << cursor_array[0] + (91 * x)
-				x += 1
-			end
-			3.times do
-				cursor_array << cursor_array[4] + ((91 * y) + 10)
-				y += 1
-			end
-		else
-	 		coords[0][1] < coords[1][1] ? coords = coords[0] : coords = coords[1]
-			cursor_array << (((((coords[1] * 4) + 3)-1) * 91) + (coords[0] * 8)+1)	
-			(1..6).each { |x| cursor_array << cursor_array[0] + x }
-			(0..6).each { |x| cursor_array << cursor_array[0] + (x + 728) }
-			7.times do
-				cursor_array << cursor_array[0] + (91 * x)
-				x += 1
-			end
-			7.times do
-				cursor_array << cursor_array[4] + ((91 * y) + 2)
-				y += 1
-			end
-		end
-			cursor_array
-	end
-
-	def mark_cursor_cell(cursor_array)
-		cursor_array.each { |x| @board_string[x] = '#' }
-	end
-	
-	def display_score(game)
-		x = 355 - game.score.to_s.length
-		game.score.to_s.split("").each do |int|
-			@board_string[x] = int
-			x += 1
-		end
-	end
 			
 	def display_board(game)
-		make_board
-		place_letters(game)
-		mark_cursor_cell(calc_cursor_array(game.cursor_coords, game.cursor_orientation))
-		display_score(game)
-		system "clear" or system "cls"
-		puts @board_string
+		draw_background
+		draw_tiles(game)
+		draw_cursor(game)
+		draw_game_timer(game)
+		draw_score(game)
+	end
+
+	def draw_background
+		@background.draw(0,0,0)
+	end
+
+	def draw_tiles(game)
+		game.game_state.each_with_index do |letter, index|
+			z = coord(index)
+			tile = Tile.new([(z[0] * 56) + 8, (z[1]*52) + 8], letter, @tiles)
+			tile.draw
+		end
+	end
+
+	def draw_cursor(game)
+		if game.cursor_orientation == "horizontal"
+			@horz_cursor.draw((game.cursor_coords.sort[0][0] * 56),(game.cursor_coords.sort[0][1] * 52),2)
+		else	
+			@vert_cursor.draw((game.cursor_coords.sort[0][0] * 56),(game.cursor_coords.sort[0][1] * 52),3)
+		end
+	end
+
+	def draw_game_timer(game)
+		game.game_timer.minutes.to_s.rjust(2, padstr="0").split("").each_with_index do |int, index|
+			number = Number.new([(500 + (index * 30)), 25], int.to_i, @numbers)
+			number.draw
+		end	
+
+		game.game_timer.seconds.to_s.rjust(2, padstr="0").split("").each_with_index do |int, index|
+			number = Number.new([(570 + (index * 30)), 25], int.to_i, @numbers)
+			number.draw
+		end
+	end
+
+	def draw_score(game)
+		game.score.to_s.split("").each_with_index do |int, index|
+			number = Number.new([(500 + (index * 30)), 55], int.to_i, @numbers)
+			number.draw
+		end
 	end
 	
 end

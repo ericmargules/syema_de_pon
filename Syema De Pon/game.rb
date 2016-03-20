@@ -1,8 +1,11 @@
+require 'gosu'
+require_relative "timer.rb"
+
 class Game
 
-	attr_accessor :game_state, :cursor_coords, :cursor_orientation, :score, :words_matched, :pressure, :pause
+	attr_accessor :game_state, :cursor_coords, :cursor_orientation, :score, :words_matched, :pressure, :pause, :game_timer
 
-	def initialize(cursor_coords, cursor_orientation)
+	def initialize(cursor_coords, cursor_orientation, window)
 		@cursor_coords = cursor_coords
 		@cursor_orientation = cursor_orientation
 		@game_state = []
@@ -10,6 +13,7 @@ class Game
 		@score = 0
 		@words_matched = []
 		@pause = false
+		@game_timer = Timer.new(window)
 	end
 
 end

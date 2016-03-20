@@ -1,6 +1,7 @@
 require 'gosu'
 
 class Timer
+
 	attr_reader :hours
 	attr_reader :minutes
 	attr_reader :seconds
