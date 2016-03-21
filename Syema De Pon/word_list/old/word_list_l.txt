@@ -1,3 +1,4 @@
+la
 laager
 laagered
 laagers
@@ -1343,6 +1344,7 @@ lezzes
 lezzie
 lezzies
 lezzy
+li
 liable
 liaise
 liaised
@@ -2008,6 +2010,7 @@ llama
 llamas
 llano
 llanos
+lo
 loach
 loaches
 load

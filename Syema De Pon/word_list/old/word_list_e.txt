@@ -242,6 +242,7 @@ ecumenic
 ecus
 eczema
 eczemas
+ed
 edacious
 edacity
 edaphic
@@ -331,6 +332,7 @@ eeriest
 eerily
 eeriness
 eery
+ef
 eff
 effable
 efface
@@ -429,6 +431,7 @@ egresses
 egret
 egrets
 egyptian
+eh
 eide
 eider
 eiders
@@ -477,6 +480,7 @@ ekpwele
 ekpweles
 ektexine
 ekuele
+el
 elain
 elains
 elan
@@ -679,6 +683,7 @@ elytroid
 elytron
 elytrous
 elytrum
+em
 emaciate
 emanate
 emanated
@@ -930,6 +935,7 @@ emyd
 emyde
 emydes
 emyds
+en
 enable
 enabled
 enabler
@@ -1694,6 +1700,7 @@ equites
 equities
 equity
 equivoke
+er
 era
 eradiate
 eras
@@ -1837,6 +1844,7 @@ eryngoes
 eryngos
 erythema
 erythron
+es
 escalade
 escalate
 escallop
@@ -1981,6 +1989,7 @@ estrus
 estruses
 estuary
 esurient
+et
 eta
 etagere
 etageres
@@ -2275,6 +2284,7 @@ ewe
 ewer
 ewers
 ewes
+ex
 exact
 exacta
 exactas

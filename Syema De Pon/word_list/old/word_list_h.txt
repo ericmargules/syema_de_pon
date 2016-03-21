@@ -1,3 +1,4 @@
+ha
 haaf
 haafs
 haar
@@ -903,6 +904,7 @@ hazy
 hazzan
 hazzanim
 hazzans
+he
 head
 headache
 headachy
@@ -1516,6 +1518,7 @@ heyday
 heydays
 heydey
 heydeys
+hi
 hiatal
 hiatus
 hiatuses
@@ -1769,7 +1772,9 @@ hiveless
 hives
 hiving
 hizzoner
+hm
 hmm
+ho
 hoactzin
 hoagie
 hoagies

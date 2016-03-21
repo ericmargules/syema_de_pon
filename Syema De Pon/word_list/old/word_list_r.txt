@@ -772,6 +772,7 @@ razz
 razzed
 razzes
 razzing
+re
 reabsorb
 reaccede
 reaccent

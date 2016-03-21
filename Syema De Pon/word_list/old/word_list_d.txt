@@ -513,6 +513,7 @@ dazzler
 dazzlers
 dazzles
 dazzling
+de
 deacon
 deaconed
 deaconry
@@ -2800,6 +2801,7 @@ djinni
 djinns
 djinny
 djins
+do
 doable
 doat
 doated

@@ -1,3 +1,4 @@
+ta
 tab
 tabanid
 tabanids
@@ -1911,6 +1912,7 @@ thyrsi
 thyrsoid
 thyrsus
 thyself
+ti
 tiara
 tiaraed
 tiaras
@@ -2348,6 +2350,7 @@ tizzies
 tizzy
 tmeses
 tmesis
+to
 toad
 toadfish
 toadflax
