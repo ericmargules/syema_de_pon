@@ -1,3 +1,5 @@
+aa
+aa
 aah
 aahed
 aahing
@@ -13,6 +15,7 @@ aarrgh
 aarrghh
 aas
 aasvogel
+ab
 aba
 abaca
 abacas
@@ -644,6 +647,7 @@ acylates
 acyloin
 acyloins
 acyls
+ad
 adage
 adages
 adagial
@@ -903,6 +907,7 @@ adze
 adzes
 adzuki
 adzukis
+ae
 aecia
 aecial
 aecidia
@@ -1057,6 +1062,7 @@ aftertax
 aftmost
 aftosa
 aftosas
+ag
 aga
 again
 against
@@ -1252,6 +1258,7 @@ agues
 agueweed
 aguish
 aguishly
+ah
 aha
 ahchoo
 ahead
@@ -1263,6 +1270,7 @@ aholds
 ahorse
 ahoy
 ahull
+ai
 aiblins
 aid
 aide
@@ -1434,6 +1442,7 @@ akimbo
 akin
 akvavit
 akvavits
+al
 ala
 alack
 alacrity
@@ -1946,6 +1955,7 @@ alway
 always
 alyssum
 alyssums
+am
 ama
 amadavat
 amadou
@@ -2264,6 +2274,7 @@ amyloses
 amyls
 amylum
 amylums
+an
 ana
 anabaena
 anabas
@@ -3099,6 +3110,7 @@ aquifer
 aquifers
 aquiline
 aquiver
+ar
 arabesk
 arabesks
 arabic
@@ -3549,6 +3561,7 @@ aryl
 aryls
 arythmia
 arythmic
+as
 asana
 asanas
 asarum
@@ -3816,6 +3829,7 @@ asyla
 asylum
 asylums
 asyndeta
+at
 atabal
 atabals
 atactic
@@ -4278,6 +4292,7 @@ avulsed
 avulses
 avulsing
 avulsion
+aw
 awa
 await
 awaited
@@ -4341,6 +4356,7 @@ awoken
 awol
 awols
 awry
+ax
 axal
 axe
 axed
@@ -4394,6 +4410,7 @@ axons
 axoplasm
 axseed
 axseeds
+ay
 ayah
 ayahs
 aye

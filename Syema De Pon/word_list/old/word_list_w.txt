@@ -661,6 +661,7 @@ wayside
 waysides
 wayward
 wayworn
+we
 weak
 weaken
 weakened
@@ -1864,6 +1865,7 @@ wizens
 wizes
 wizzen
 wizzens
+wo
 woad
 woaded
 woads

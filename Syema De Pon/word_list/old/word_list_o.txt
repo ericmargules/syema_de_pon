@@ -289,6 +289,7 @@ oculi
 oculist
 oculists
 oculus
+od
 odalisk
 odalisks
 odd
@@ -345,6 +346,7 @@ odyles
 odyls
 odyssey
 odysseys
+oe
 oecology
 oedema
 oedemas
@@ -368,6 +370,7 @@ oestrums
 oestrus
 oeuvre
 oeuvres
+of
 ofay
 ofays
 off
@@ -458,6 +461,7 @@ ogrish
 ogrishly
 ogrism
 ogrisms
+oh
 ohed
 ohia
 ohias
@@ -588,6 +592,7 @@ ology
 oloroso
 olorosos
 olympiad
+om
 omasa
 omasum
 omber
@@ -633,6 +638,7 @@ omophagy
 omphali
 omphalos
 oms
+on
 onager
 onagers
 onagri
@@ -755,6 +761,7 @@ oozily
 ooziness
 oozing
 oozy
+op
 opacify
 opacity
 opah
@@ -890,6 +897,7 @@ opuscule
 opuses
 oquassa
 oquassas
+or
 ora
 orach
 orache
@@ -1110,6 +1118,7 @@ oryx
 oryxes
 orzo
 orzos
+os
 osar
 oscine
 oscines
@@ -2124,6 +2133,7 @@ ovulates
 ovule
 ovules
 ovum
+ow
 owe
 owed
 owes
@@ -2144,6 +2154,7 @@ owning
 owns
 owse
 owsen
+ox
 oxalate
 oxalated
 oxalates
@@ -2221,6 +2232,7 @@ oxytocic
 oxytocin
 oxytone
 oxytones
+oy
 oyer
 oyers
 oyes

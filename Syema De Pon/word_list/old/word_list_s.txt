@@ -2472,6 +2472,7 @@ sferics
 sforzato
 sfumato
 sfumatos
+sh
 sha
 shabbier
 shabbily
@@ -3367,6 +3368,7 @@ shyly
 shyness
 shyster
 shysters
+si
 sial
 sialic
 sialid
@@ -5181,6 +5183,7 @@ snugness
 snugs
 snye
 snyes
+so
 soak
 soakage
 soakages

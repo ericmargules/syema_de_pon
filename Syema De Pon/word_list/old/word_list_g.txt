@@ -1758,6 +1758,7 @@ gnosis
 gnostic
 gnu
 gnus
+go
 goa
 goad
 goaded

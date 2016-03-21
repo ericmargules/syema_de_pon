@@ -72,6 +72,7 @@ ictic
 ictus
 ictuses
 icy
+id
 idea
 ideal
 idealess
@@ -144,6 +145,7 @@ idyllic
 idyllist
 idylls
 idyls
+if
 iff
 iffier
 iffiest
@@ -524,6 +526,7 @@ imputer
 imputers
 imputes
 imputing
+in
 inaction
 inactive
 inane
@@ -1530,6 +1533,7 @@ irritate
 irrupt
 irrupted
 irrupts
+is
 isagoge
 isagoges
 isagogic
@@ -1664,6 +1668,7 @@ isthmoid
 isthmus
 istle
 istles
+it
 italic
 italics
 itch
