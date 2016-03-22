@@ -12,7 +12,6 @@ class GameWindow < Gosu::Window
 		@word_arrays = create_word_arrays
 		@pause_screen = Gosu::Image.new(self, "images/pause_screen.png", false)
 		@pause_icon = Gosu::Image.new(self, "images/pause_icon.png", false)
-		@last = 0
 		new_game(self)
 	end
 
@@ -157,29 +156,29 @@ class GameWindow < Gosu::Window
 	def accelerate(game)
 		case 
 		when game.game_timer.minutes <= 2
-			if game.game_timer.seconds % 30 == 0 && game.game_timer.seconds != @last 
+			if game.game_timer.seconds % 30 == 0 && game.game_timer.seconds != game.last 
 				add_row(1)
-				@last = game.game_timer.seconds
+				game.last = game.game_timer.seconds
 			end
 		when game.game_timer.minutes <= 3
-			if game.game_timer.seconds % 20 == 0 && game.game_timer.seconds != @last 
+			if game.game_timer.seconds % 20 == 0 && game.game_timer.seconds != game.last 
 				add_row(1)
-				@last = game.game_timer.seconds
+				game.last = game.game_timer.seconds
 			end
 		when game.game_timer.minutes <= 4
-			if game.game_timer.seconds % 15 == 0 && game.game_timer.seconds != @last 
+			if game.game_timer.seconds % 15 == 0 && game.game_timer.seconds != game.last 
 				add_row(1)
-				@last = game.game_timer.seconds
+				game.last = game.game_timer.seconds
 			end		
 		when game.game_timer.minutes <= 5
-			if game.game_timer.seconds % 10 == 0 && game.game_timer.seconds != @last 
+			if game.game_timer.seconds % 10 == 0 && game.game_timer.seconds != game.last 
 				add_row(1)
-				@last = game.game_timer.seconds		
+				game.last = game.game_timer.seconds		
 			end
 		when game.game_timer.minutes >= 5
-			if game.game_timer.seconds % 5 == 0 && game.game_timer.seconds != @last 
+			if game.game_timer.seconds % 5 == 0 && game.game_timer.seconds != game.last 
 				add_row(1)
-				@last = game.game_timer.seconds		
+				game.last = game.game_timer.seconds		
 			end
 		end
 	end
