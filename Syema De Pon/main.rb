@@ -10,9 +10,21 @@ class GameWindow < Gosu::Window
 	def initialize(width, height, fullscreen)
 		super(width, height, fullscreen)
 		@word_arrays = create_word_arrays
+		@menu_screen = Gosu::Image.new(self, "images/menu_screen.png", false)
 		@pause_screen = Gosu::Image.new(self, "images/pause_screen.png", false)
 		@pause_icon = Gosu::Image.new(self, "images/pause_icon.png", false)
-		new_game(self)
+		start_session
+		# new_game(self)
+	end
+
+	def start_session
+		# EVENTUALLY PUT OPENING DEV CREDIT ANIMATION HERE
+		start_menu
+	end
+
+	def start_menu
+		@main_menu = true
+		@icon_pos = 0
 	end
 
 	def new_game(window)
@@ -26,7 +38,24 @@ class GameWindow < Gosu::Window
   end
 
   def button_down(id)
-		if @game.pause
+		if @main_menu == true
+			case id
+			when Gosu::KbUp
+				@icon_pos == 0 ? @icon_pos = 2 : @icon_pos -= 1
+			when Gosu::KbDown
+				@icon_pos == 2 ? @icon_pos = 0 : @icon_pos += 1
+			when Gosu::KbReturn 
+				case @icon_pos
+				when 0
+					@main_menu = false
+					new_game(self)
+				when 1
+					
+				when 2
+					close
+				end
+			end
+		elsif @game.pause
 			case id
 			when Gosu::KbEscape then pause
 			when Gosu::KbUp
@@ -59,16 +88,23 @@ class GameWindow < Gosu::Window
   end
 
 	def update
-		@game.game_timer.update
-		gravity
-		pressurize
-		check_pressure
-		accelerate(@game)
+		if @game
+			@game.game_timer.update
+			gravity
+			pressurize
+			check_pressure
+			accelerate(@game)
+		end
 	end
 
 	def draw
-		@board.display_board(@game)
-		draw_pause(@game)
+		if @main_menu == true
+			draw_main_menu
+			place_menu_icon(@icon_pos)
+		else
+			@board.display_board(@game)
+			draw_pause(@game)
+		end
 	end
 
 	
@@ -183,9 +219,16 @@ class GameWindow < Gosu::Window
 		end
 	end
 
+	def draw_main_menu
+		if @main_menu == true
+			@menu_screen.draw(0,0,0)
+		end
+	end
+
 	def game_over
-		close
-		p @game.game_timer
+		# WILL CONTAIN "GAME OVER NOTIFICATION"
+		start_menu
+		@game = nil
 	end
 
 #### WORD CALCULATION METHODS ####
@@ -392,6 +435,10 @@ class GameWindow < Gosu::Window
 
 	def place_pause_icon(position=0)
 		@pause_icon.draw(440, (335 + (65 * position)), 4)
+	end
+
+	def place_menu_icon(position)
+		@pause_icon.draw(425, (352 + (52 * position)), 4)
 	end
 
 	def evaluate_board
