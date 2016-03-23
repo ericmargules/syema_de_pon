@@ -91,9 +91,9 @@ class GameWindow < Gosu::Window
 		if @game
 			@game.game_timer.update
 			gravity
+			accelerate(@game)
 			pressurize
 			check_pressure
-			accelerate(@game)
 		end
 	end
 
