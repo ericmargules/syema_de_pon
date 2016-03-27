@@ -434,7 +434,7 @@ class GameWindow < Gosu::Window
 	end
 
 	def place_pause_icon(position=0)
-		@pause_icon.draw(440, (335 + (65 * position)), 4)
+		@pause_icon.draw(464, (360 + (49 * position)), 4)
 	end
 
 	def place_menu_icon(position)
