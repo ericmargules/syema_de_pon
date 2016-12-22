@@ -6,6 +6,7 @@ require_relative "tile.rb"
 require_relative "timer.rb"
 require_relative "number.rb"
 
+
 class GameWindow < Gosu::Window
 
 	include Position_Methods
